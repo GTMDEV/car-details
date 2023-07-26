@@ -4,15 +4,17 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
+//@RepositoryRestResource(path="vehicles")
 public interface CarRepository extends CrudRepository<Car, Long> {
 
 	// by brand
 
-	List<Car> findByBrand(String brand);
+	List<Car> findByBrand(@Param("brand") String brand);
 
 	// by color
-	List<Car> findByColor(String color);
+	List<Car> findByColor(@Param("color") String color);
 
 	// by manufacture year
 	List<Car> findByManufactureYear(int manufactureYear);
